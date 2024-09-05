@@ -1,14 +1,12 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, ImageSourcePropType, Pressable} from 'react-native';
 import {pokemon} from '../../data/data';
-import { ThemeToggleButton, useTheme } from '../../providers/ThemeProvider/ThemeContext.tsx';
 
 const PokemonCard = ({route}: any) => {
-  const { isDarkTheme } = useTheme();
   console.log(route.params.pokemonId);
   const [pokemonId, setPokemonId] = React.useState(route.params.pokemonId - 1);
 
-  const pokemonStyles = styles(isDarkTheme, pokemon[pokemonId]?.color );
+  const pokemonStyles = styles(pokemon[pokemonId]?.color);
 
   const handleNextButton = () => {
     //check bounds of array
@@ -63,7 +61,6 @@ const PokemonCard = ({route}: any) => {
           <Text style={pokemonStyles.buttonText}>Next</Text>
         </Pressable>
         </View>
-        <ThemeToggleButton />
       </View>
     </View>
   );
@@ -71,13 +68,12 @@ const PokemonCard = ({route}: any) => {
 
 export default PokemonCard;
 
-const styles = (isDarkTheme: boolean, color?:string) => StyleSheet.create({
+const styles = (color?:string) => StyleSheet.create({
   container: {
     paddingTop: 50,
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'column',
-    backgroundColor: isDarkTheme ? 'black' : 'white',
   },
   textContainer: {
     flexDirection: 'column',

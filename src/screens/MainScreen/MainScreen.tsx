@@ -1,14 +1,10 @@
 import React from 'react';
 import {Pressable, View, Text, FlatList, Image, StyleSheet} from 'react-native';
 import { pokemon } from '../../data/data';
-import { useTheme, ColorsData, ThemeToggleButton } from '../../providers/ThemeProvider/ThemeContext';
 
 //create the component
 const MainScreen = ({ navigation }: any) => {
-  const { colors } = useTheme();
-
   const DATA = pokemon;
-  const styles = getStyles(colors);
 
   const renderItem = ({item}: any) => {
     const colorStyles = getPokemonStyles(item.color);
@@ -31,8 +27,7 @@ const MainScreen = ({ navigation }: any) => {
   };
 
   return (
-    <View style={styles.container}>
-      <ThemeToggleButton />
+    <View>
       <FlatList data={DATA} renderItem={renderItem} />
     </View>
   );
@@ -40,13 +35,6 @@ const MainScreen = ({ navigation }: any) => {
 
 //export the component
 export default MainScreen;
-
-const getStyles = (themeColors: ColorsData) => StyleSheet.create({
-  container: {
-    backgroundColor: themeColors.background,
-    color: themeColors.text,
-  },
-});
 
 //create the getStyles function
 const getPokemonStyles = (pokemonColor: string) => StyleSheet.create({

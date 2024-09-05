@@ -15,12 +15,10 @@ function App(): React.JSX.Element {
 
   return (
     <NavigationContainer>
-      <ThemeProvider>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="Home" component={MainScreen} />
           <Stack.Screen name="PokemonCard" component={PokemonCard} />
         </Stack.Navigator>
-      </ThemeProvider>
     </NavigationContainer>
   );
 }
