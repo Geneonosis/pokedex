@@ -27,19 +27,8 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-  const toggleTheme = () => setIsDarkTheme(prevTheme => !prevTheme);
-  const theme = {
-    isDarkTheme,
-    toggleTheme,
-    colors: isDarkTheme ? darkColors : lightColors,
-  };
-
-  return (
-    <ThemeContext.Provider value={theme}>
-      {children}
-    </ThemeContext.Provider>
-  );
+/** implement the theme provider **/
+return (<></>);
 };
 
 export const ThemeToggleButton: React.FC = () => {
