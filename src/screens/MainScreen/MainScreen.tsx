@@ -1,10 +1,10 @@
 import React from 'react';
-import {Pressable, View, Text, FlatList, Image, StyleSheet} from 'react-native';
+import {Pressable, View, Text, FlatList, Image, StyleSheet, SafeAreaView} from 'react-native';
 import { pokemon } from '../../data/data';
 import { useTheme, ColorsData, ThemeToggleButton } from '../../providers/ThemeProvider/ThemeContext';
 
 //create the component
-const MainScreen = ({ navigation }: any) => {
+const MainScreen = () => {
   const { colors } = useTheme();
 
   const DATA = pokemon;
@@ -16,8 +16,7 @@ const MainScreen = ({ navigation }: any) => {
       <Pressable onPress={
         () => {
           console.log(item.name);
-          //todo: navigate to PokemonCard
-          navigation.navigate('PokemonCard', {pokemonId: item.id});
+          //TODO: set up navigation
         }
       }
                  //@ts-ignore
@@ -31,10 +30,10 @@ const MainScreen = ({ navigation }: any) => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView  style={styles.container}>
       <ThemeToggleButton />
       <FlatList data={DATA} renderItem={renderItem} />
-    </View>
+    </SafeAreaView>
   );
 };
 

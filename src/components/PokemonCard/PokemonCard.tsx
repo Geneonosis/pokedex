@@ -3,10 +3,9 @@ import {View, Text, Image, StyleSheet, ImageSourcePropType, Pressable} from 'rea
 import {pokemon} from '../../data/data';
 import { ThemeToggleButton, useTheme } from '../../providers/ThemeProvider/ThemeContext.tsx';
 
-const PokemonCard = ({route}: any) => {
+const PokemonCard = () => {
   const { isDarkTheme } = useTheme();
-  console.log(route.params.pokemonId);
-  const [pokemonId, setPokemonId] = React.useState(route.params.pokemonId - 1);
+  const [pokemonId, setPokemonId] = React.useState(1);
 
   const pokemonStyles = styles(isDarkTheme, pokemon[pokemonId]?.color );
 
